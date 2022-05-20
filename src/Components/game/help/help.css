@@ -1,0 +1,10 @@
+.helppanel_view{
+    width: 100%;
+    height: calc(4vh / var(--unit));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gold;
+    font-size: calc(2.5vh / var(--unit));
+    font-weight: 600;
+}

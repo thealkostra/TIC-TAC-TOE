@@ -1,0 +1,19 @@
+{
+    // можно подключить дополнительные опции в отдельном файле
+    //"extends": "путь к файлу",
+    "compilerOptions": {
+        "target": "ES5",
+        "outDir": "./dist", // чтобы не засерать каталог кладем все в отдельную папку
+        "rootDir": "./src",
+        "module": "es6",
+        "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "sourceMap": true,
+        "allowJs": true,    // чтобы портировать js  в ts
+        "strict": false  // жесткая проверка на типы
+    },
+    "include": [
+        "src/**/*"
+    ],
+
+}

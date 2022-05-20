@@ -1,0 +1,32 @@
+.buttons__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_size-s{
+    height: 5em;
+    font-size: calc(4vh / var(--unit));
+    font-weight: 600;
+    color: rgb(110, 255, 74);
+    text-shadow: 0 0 3px rgb(110, 255, 74);
+}
+.button_size-s:hover{
+    color: rgb(253, 21, 156);
+    text-shadow: 0 0 30px rgb(253, 21, 156);
+}
+.button_size-l{
+    height: 3em;
+    font-size: calc(10vh / var(--unit));
+    font-weight: 600;
+    color: rgb(110, 255, 74);
+    text-shadow: 0 0 3px rgb(110, 255, 74);
+}
+.button_size-l:hover{
+    color: rgb(253, 21, 21);
+    text-shadow: 0 0 30px rgb(253, 21, 21);
+}
+.button_active{
+    color: rgb(253, 21, 156);
+    text-shadow: 0 0 30px rgb(253, 21, 156);
+}

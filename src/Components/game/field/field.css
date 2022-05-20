@@ -1,0 +1,16 @@
+.field_view{
+    width: calc(80vh / var(--unit));
+    height: calc(80vh / var(--unit));
+    position: relative;
+    box-shadow: 2px 2px 8px #000;
+}
+.col_view{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.row_view{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

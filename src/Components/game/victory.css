@@ -1,0 +1,25 @@
+.victory_view{
+    width: calc(80vh / var(--unit));
+    height: calc(80vh / var(--unit));
+    font-size: calc(10vh / var(--unit));
+    font-weight: 700;
+    background-color: rgba(51, 48, 48, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: gold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: opac 1s linear;
+}
+
+@keyframes opac {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

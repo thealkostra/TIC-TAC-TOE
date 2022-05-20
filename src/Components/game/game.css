@@ -1,0 +1,37 @@
+.game{
+    width: 100%;
+    height: calc(90vh / var(--unit));
+    display: flex;
+    position: relative;
+}
+.backform{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+}
+.popup{
+    text-align: center;
+    width: calc(50vh / var(--unit)); 
+    height: calc(30vh / var(--unit)); 
+    font-size: calc(3vh / var(--unit));
+
+    background-color:rgb(93, 105, 145);
+    color: #fff;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #000;
+}
+.popup button{
+    font-size: calc(3vh / var(--unit));
+    border-radius: 5px;
+}
