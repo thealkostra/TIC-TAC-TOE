@@ -9,19 +9,22 @@ import { useRef } from "react";
 
 export const App = () => {
     const dispatch = useDispatch();
-    const gameOn = useSelector(selectGameon);
+    const gameOn = useSelector(selectGameon); //флаг начата ли игра
     const appref:any = useRef();
-    const nameUser = useSelector(selectUser);
+    const nameUser = useSelector(selectUser); // имя игрока из сторе
+    let nameTmp:string|null = localStorage.getItem("userName");
+    if(nameTmp!==null){
+        dispatch(setNameUser(nameTmp));
+    }
 
 
-
-    //clear settings and start game
+    //очищаем данные и начинаем игру
     const HandleClickStart = () =>{
         dispatch(setVictory({victory: false, line: null, startCol:null, startRow: null, finishCol: null, finishRow: null}));
         dispatch(setCloseSocket(false));
         dispatch(changeGameOn(true));
     }
-
+// изменение размеров формы - добавляем unit к css, а тот уже сам размеры выставит
     const windowResize = () =>{
         let unit;
         if(window.innerHeight >= window.innerWidth)
@@ -31,7 +34,7 @@ export const App = () => {
         appref.current.style.setProperty(`--unit`, unit);
     }
 
-
+// при изменении размеров окна браузера изменяем размеры
     useEffect(()=>{
         windowResize();
         window.addEventListener('resize', windowResize)
@@ -40,16 +43,19 @@ export const App = () => {
         }
     })
 
-
+    const changeName = (e:any) =>{
+        localStorage.setItem("userName",e.target.value)
+        dispatch(setNameUser(e.target.value));
+    }
 
     return(
         <div ref={appref} className = "App">
             <Header/>
             {!gameOn&&(
                 <>
-                    <input type="text" value = {nameUser} onChange={(e)=>dispatch(setNameUser(e.target.value))}></input>
+                    <input type="text" value = {nameUser} onChange={changeName}></input>
                     <div className="buttons buttons_size">
-                        <Button funcExecute={HandleClickStart} styleclass = "button buttons__button button_size-l">START</Button>
+                        <Button funcExecute={HandleClickStart} styleclass = "buttons buttons__button button_size-l">START</Button>
                     </div>
                 </>
             )}

@@ -49,6 +49,7 @@ export const allSlice = createSlice({
   name: 'all',
   initialState,
   reducers: {
+    // изменение имени пользователя
     setNameUser: (state, action:PayloadAction<string>) =>{
       state.nameUser = action.payload;
     },

@@ -7,7 +7,7 @@ export const Header = () =>{
 
     return(
         <div className={gameOn?"header gameheader":"header"}>
-            Tic-tac-toe 5 in line
+            Tic-Tac-Toe 5 in line
         </div>
         )
 }

@@ -16,7 +16,7 @@ interface IProps{
 
 
 
-
+// рендерим строку если пропсы поменялись 
 const RenderColumn = ({row,keyrow, HandleClick}:IProps) =>{
     return(
         <div className="col field__col col_view">
@@ -46,7 +46,7 @@ export const Field = () =>{
     const victory = useSelector(selectVictory);
 
 
-
+// при клике на ячейку, если наш ход отправляем координаты на сервер
     const HandleClick = (row:number,col:number) =>{
         if(field[row][col]===""&&step.current){
                 dispatch(setMyStep({x: col, y:row}))
@@ -54,28 +54,30 @@ export const Field = () =>{
     
     }
 
+    // получаем какой ход
     useEffect(()=>{
             step.current = steptmp;
     },[steptmp])
 
-    //Draw line victory
+    //рисуем линию перечеркивания при победе
      const drawLine = (mode:number, start_row:number, start_col:number, finish_row:number, finish_col:number)=>{
-        console.log(mode, start_row, start_col, finish_row, finish_col);
         let unit;
         if(window.innerHeight >= window.innerWidth)
             unit = window.innerHeight / window.innerWidth;
         else
             unit = 1.05;
         unit = window.innerHeight*0.04/unit;
-
+// создаем канвас
         let cnv:HTMLCanvasElement = document.createElement("canvas") as HTMLCanvasElement;
         refField.current.append(cnv);
         let c = cnv.getContext("2d");
+        // устанавливаем для него стили
         cnv.style.position = "absolute";
         cnv.style.top = "0px";
         cnv.style.left = "0px";
         cnv.width = refField.current.clientWidth+2;
         cnv.height = refField.current.clientHeight+2;
+        // перечеркиваем клетки по координатам
         if(c){
             c.beginPath();
             c.strokeStyle = "red";
@@ -103,7 +105,7 @@ export const Field = () =>{
     useEffect(()=>{
         if(victory.victory&&victory.line!==null&&victory.startCol!==null&&victory.startRow!==null&&victory.finishCol!==null&&victory.finishRow!==null)
             drawLine(victory.line, victory.startCol, victory.startRow, victory.finishCol, victory.finishRow);
-    }, [victory.victory])
+    }, [victory.victory, victory.line, victory.startCol, victory.startRow, victory.finishCol, victory.finishRow])
 
     return(
         <div ref={refField} className= "field game__field field_view">

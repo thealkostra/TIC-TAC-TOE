@@ -11,24 +11,25 @@ export const Menu = () =>{
     const currentUser = useSelector(selectCurrentUser);
     const nameUser = useSelector(selectUser)
 
+    // при наведении на кнопку меняем надпись помощи
     const mouseHover = (str:string) =>{
         dispatch(setHelp(str));
     }
 
     const HandleClick = () =>{
         if(!closeSocket){
-            //if first exit closesocket
+            //если выходим первыми то - закрываем сокет, очищаем поле и переключаем флаг игры
             dispatch(setCloseSocket(true))
             dispatch(setField([]));
             dispatch(changeGameOn(false))
         }
         else{
-            //second exit
+            //если выходим вторыми , то сокет уже закрыт
             dispatch(setField([]));
             dispatch(changeGameOn(false))
         }
     }
-
+// при уходе курсора с кнопки меняем надпись помощи
     const mouseBlur = () =>{
         dispatch(setHelp( "Control: Mouse"));
     }

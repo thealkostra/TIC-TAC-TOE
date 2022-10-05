@@ -7,9 +7,8 @@ interface IProps{
     row: number,
     HandleClick:Function
 }
-
+//отрисосываем ячейку если данные поменялись
 export const Tile  = ({row, col,HandleClick,  dataTile}:IProps) =>{
-    console.log("tile")
     return (
         <div 
             className={dataTile==="X"?"tile tileX":"tile tileO"}

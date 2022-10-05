@@ -22,7 +22,7 @@
     font-size: calc(3vh / var(--unit));
 
     background-color:rgb(93, 105, 145);
-    color: #fff;
+    color: rgb(255, 115, 115);
     font-weight: 900;
     display: flex;
     flex-direction: column;
@@ -33,5 +33,38 @@
 }
 .popup button{
     font-size: calc(3vh / var(--unit));
+    width: calc(25vh / var(--unit)); 
+    height: calc(8vh / var(--unit)); 
+    color: #fff;
+    border-radius: 15px;
+    background-color:rgb(93, 105, 145);
+}
+.wait{
+    width: calc(40vh / var(--unit)); 
+    height: calc(2vh / var(--unit)); 
     border-radius: 5px;
+    clip-path:inset(0px);
+  }
+  .waitmove{
+    width: 1000px; 
+    height: calc(3vh / var(--unit)); 
+    background: repeating-linear-gradient(45deg, 
+    rgb(247, 247, 247) ,
+    rgb(247, 247, 247) 15px,
+    rgb(163, 200, 236) 15px,
+    rgb(163, 200, 236) 30px,
+    rgb(247, 247, 247) 30px
+    );
+    animation: movespin 15s linear infinite;
+  }
+  @keyframes movespin{
+    0%{
+          transform: translateX(calc(40vh / var(--unit) - 1000px));
+      }
+    50%{
+          transform: translateX(0px);
+      }
+    100%{
+        transform: translateX(calc(40vh / var(--unit) - 1000px));
+    }
 }
